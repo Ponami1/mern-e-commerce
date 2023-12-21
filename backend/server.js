@@ -22,30 +22,10 @@ db.once('open', () => console.log('connected to the database'));
 app.use('/api/seed',mainRoute)
 
 
-app.get('/api/products',productRoute)
+app.use('/api/products',productRoute)
 
 
-router.get('/api/products/slug/:slug', (req,res) => {
-  const product = data.products.find((x) => x.slug === req.params.slug)
-  if (product) {
-    res.send(product);
-  }
-  else {
-    res.status(404).json({message:'Product Not found'})
-  }
-})
 
-
-router.get('/api/products/:id', (req,res) => {
-  const product = data.products.find((x) => x._id === req.params.id)
- 
-  if (product) {
-    res.send(product);
-  }
-  else {
-    res.status(404).json({message:'Product Not found'})
-  }
-})
 
 
 
