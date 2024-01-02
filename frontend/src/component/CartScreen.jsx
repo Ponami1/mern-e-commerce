@@ -8,6 +8,7 @@ function CartScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store)
   const { cart } = state;
   const { cartItems } = cart;
+  const { userInfo } = state;
   const navigate = useNavigate()
 
   const updateCartHandler = async (item, quantity) => {
