@@ -15,7 +15,12 @@ function Navbar() {
   }
   return (
     <div>
-      <ToastContainer position="bottom-center" limit={1}/>
+      <ToastContainer position="bottom-center" limit={1} />
+      
+
+
+
+
       <header className='bg-slate-900 font-bold p-4 flex justify-between items-center'>
         
         <Link className=' text-yellow-50  text-[26px]' to='/'>amazona</Link>
@@ -31,7 +36,7 @@ function Navbar() {
           <div className=" flex gap-2 items-center">
             <p className=" text-white ">{userInfo.name}</p>
             <Link className=" text-white border-2 p-2">User Profile</Link>
-            <Link className=" text-white border-2 p-2">Order History</Link>
+            <Link to='/orderhistory' className=" text-white border-2 p-2">Order History</Link>
             <Link className=" text-white border-2 p-2 " onClick={signoutHandler}>Sign Out</Link>
           </div>
         ) : (

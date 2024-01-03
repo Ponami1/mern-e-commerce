@@ -25,6 +25,23 @@ router.post('/', isAuth, expressAsync(async (req, res) => {
 
 )
 
+
+//router.get('/mine', isAuth, expressAsync(async (req, res) => {
+  //const orders = await Order.find({user:req.user._id})
+  //res.json(orders)
+//console.log(orders)
+//})
+
+//)
+
+router.get('/mine', isAuth, expressAsync(async (req, res) => {
+  const orders = await Order.find({ user: req.user._id });
+
+
+    res.json(orders);
+
+}));
+
 router.get('/:id', isAuth, expressAsync(async (req, res) => {
   const order = await Order.findById(req.params.id)
   if (order) {
