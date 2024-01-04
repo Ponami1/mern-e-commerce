@@ -7,11 +7,16 @@ import 'react-toastify/dist/ReactToastify.css'
 function Navbar() {
   const { state, dispatch: ctxDispatch } = useContext(Store)
   const { cart, userInfo } = state;
+  console.log('State:', state);
+  console.log('Cart:', cart);
+  console.log('UserInfo:', userInfo);
+
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo')
     localStorage.removeItem('shippingAddress')
     localStorage.removeItem('paymentMethod')
+    window.location.href = '/signin'
   }
   return (
     <div>
@@ -35,7 +40,7 @@ function Navbar() {
         {userInfo ? (
           <div className=" flex gap-2 items-center">
             <p className=" text-white ">{userInfo.name}</p>
-            <Link className=" text-white border-2 p-2">User Profile</Link>
+            <Link to='/profile' className=" text-white border-2 p-2">User Profile</Link>
             <Link to='/orderhistory' className=" text-white border-2 p-2">Order History</Link>
             <Link className=" text-white border-2 p-2 " onClick={signoutHandler}>Sign Out</Link>
           </div>

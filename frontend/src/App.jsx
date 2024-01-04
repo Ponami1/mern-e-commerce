@@ -14,6 +14,7 @@ import PaymentMethodScreen from './component/PaymentMethodScreen';
 import PlaceOrderScreen from './component/PlaceOrderScreen';
 import OrderScreen from './component/OrderScreen';
 import OrderHistoryScreen from './component/OrderHistoryScreen';
+import ProfileScreen from './component/ProfileScreen';
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
         <Route path='/signin' element={ <SigninScreen />  } ></Route>
         <Route path='/shipping' element={ <ShippingAddress />  } ></Route>
         <Route path='product/:slug' element={<ProductScreen />}></Route>
-        <Route path='/signup' element={<SignUp/>} ></Route>
+        <Route path='/signup' element={<SignUp />} ></Route>
+        <Route path='/profile' element={<ProfileScreen />} ></Route>
         <Route path='/payment' element={<PaymentMethodScreen />} ></Route>
         <Route path='/placeorder' element={<PlaceOrderScreen />} ></Route>
         <Route path='/order/:id' element={<OrderScreen />} ></Route>

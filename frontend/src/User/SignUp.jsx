@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 
 
 function SignUp() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { search } = useLocation();
   console.log(search)
   const redirectInUrl = new URLSearchParams(search).get('redirect');
