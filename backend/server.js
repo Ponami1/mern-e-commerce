@@ -12,8 +12,9 @@ const mongoose = require('mongoose')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors())
-
+app.use(cors({
+    origin: ["http://localhost:5173", "https://mern-ecommerce-app.onrender.com"]
+}));
 
  mongoose.connect(process.env.DB_C);
     const db = mongoose.connection;
@@ -31,4 +32,4 @@ app.use('/api/orders', orderRoute);
 
 
 
-app.listen(PORT,()=>console.log(`app is listening at port ${PORT}`))
+app.listen(PORT, () => console.log(`app is listening at port ${PORT}`))
