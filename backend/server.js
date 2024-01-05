@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express();
-const data = require('./data')
+const path = require('path');
 PORT = process.env.PORT || 5000
 const cors = require('cors')
 const mainRoute = require('./server/routes/mainRoutes')
@@ -30,6 +30,11 @@ app.use('/api/products', productRoute);
 app.use('/api/users', userRoute);
 app.use('/api/orders', orderRoute);
 
+const dirname = path.resolve();
+app.use(express.static(path.join(dirname, '/frontend/dist')))
+app.get('*', (req, res) =>
+    res.sendFile(path.join(dirname, '/frontend/dist/index.html'))
+);
 
 
 app.listen(PORT, () => console.log(`app is listening at port ${PORT}`))
