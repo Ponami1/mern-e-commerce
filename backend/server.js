@@ -12,9 +12,7 @@ const mongoose = require('mongoose')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-    origin: ["http://localhost:5173", "https://mern-ecommerce-app.onrender.com"]
-}));
+app.use(cors());
 
  mongoose.connect(process.env.DB_C);
     const db = mongoose.connection;
